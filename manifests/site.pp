@@ -48,7 +48,7 @@ node default {
 node brianmillett.puppetlabs.vm {
 
   include examples::fundamentals
-  include user
+  include users
   include skeleton
   
 #  file { '/etc/motd':
