@@ -44,28 +44,3 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
 }
-
-node 'brianmillett.puppetlabs.vm' {
-
-  include examples::fundamentals
-  include users
-  include skeleton
-  
-#  file { '/etc/motd':
-#    ensure => file,
-#    owner => 'root',
-#    group => 'root',
-#    mode => '0644',
-#    content => "Remember, no matter where you go, there you are.\n",
-#  }
-  
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
-    path => '/usr/bin:/usr/local/bin',
-    creates => '/etc/motd',
-  }
-  
-  host { 'testing.puppetlabs.vm':
-    ensure => present,
-    ip => '127.0.0.1',
-  }
-}
