@@ -43,6 +43,11 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
+}
+
+node brianmillett.puppetlabs.vm {
+
+  include examples::fundamentals
   
 #  file { '/etc/motd':
 #    ensure => file,
