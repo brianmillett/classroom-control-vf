@@ -45,7 +45,7 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
 }
 
-node "brianmillett.puppetlabs.vm" {
+node 'brianmillett.puppetlabs.vm' {
 
   include examples::fundamentals
   include users
