@@ -61,6 +61,7 @@ node 'brianmillett.puppetlabs.vm' {
   include memcached
   include nginx
   include aliases
+  include users::admins
   
 #  file { '/etc/motd':
 #    ensure => file,
