@@ -43,6 +43,11 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
+
+  if $::is_virtual {
+    $vmname = capitalize($::virtual)
+    notify { "This is a ${vmname} virtual machine.": }
+  }
 }
 
 node 'brianmillett.puppetlabs.vm' {
