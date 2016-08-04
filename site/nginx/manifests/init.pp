@@ -11,7 +11,6 @@ class nginx {
   
   file { '/var/www':
     ensure => directory,
-    mode => '0775',
   }
   
   file { '/var/www/index.html':
@@ -28,8 +27,7 @@ class nginx {
 
   file { '/etc/nginx/conf.d':
     ensure => directory,
-    mode => '0775',
-  }
+   }
 
   file { '/etc/nginx/conf.d/default.conf':
     ensure => file,
