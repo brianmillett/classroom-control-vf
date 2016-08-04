@@ -55,6 +55,12 @@ node 'brianmillett.puppetlabs.vm' {
     $vmname = capitalize($::virtual)
     notify { "This is a ${vmname} virtual machine.": }
   }
+  if $::osfamily == 'Windows' {
+    notify { "May God have mercy on your soul.": }
+    Package {
+      provider => chocolatey,
+    }
+  }
   include examples::fundamentals
   include users
   include skeleton
