@@ -7,6 +7,7 @@ class nginx {
                           $group = 'root'
                           $docroot = '/var/www'
                           $confdir = '/etc/nginx'
+                          $blockdir = "${confdir}/conf.d"
                           $logdir = '/var/log/nginx'
                         }
     'windows' : {
@@ -15,6 +16,7 @@ class nginx {
                   $group = 'Administrators'
                   $docroot = 'C:/ProgramData/nginx/html'
                   $confdir = 'C:/ProgramData/nginx'
+                  $blockdir = "${confdir}/conf.d"
                   $logdir = 'C:/ProgramData/nginx/logs'
                 }
    default : {
@@ -55,11 +57,11 @@ class nginx {
     notify => Service['nginx'],
   }
 
-  file { "${confdir}/conf.d":
+  file { ${blockdir}:
     ensure => directory,
    }
 
-  file { "${confdir}/conf.d/default.conf":
+  file { "${blockdir}/default.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/default.conf',
     require => Package['nginx'],
