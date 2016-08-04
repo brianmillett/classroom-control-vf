@@ -51,7 +51,10 @@ node default {
 }
 
 node 'brianmillett.puppetlabs.vm' {
-
+  if $::is_virtual {
+    $vmname = capitalize($::virtual)
+    notify { "This is a ${vmname} virtual machine.": }
+  }
   include examples::fundamentals
   include users
   include skeleton
