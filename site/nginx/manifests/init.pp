@@ -57,7 +57,7 @@ class nginx {
     notify => Service['nginx'],
   }
 
-  file { ${blockdir}:
+  file { $blockdir:
     ensure => directory,
    }
 
