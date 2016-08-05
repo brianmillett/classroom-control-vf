@@ -44,9 +44,6 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
 
-  $message = hiera('message')
-  notify { $message: }
-
   if $::is_virtual {
     $vmname = capitalize($::virtual)
     notify { "This is a ${vmname} virtual machine.": }
@@ -72,6 +69,9 @@ node 'brianmillett.puppetlabs.vm' {
   include aliases
   include users::admins
   
+  $message = hiera('message')
+  notify { $message: }
+
   exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
     path => '/usr/bin:/usr/local/bin',
     creates => '/etc/motd',
