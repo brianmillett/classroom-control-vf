@@ -15,6 +15,10 @@ class nginx (
     mode => '0664',
   }
   
+  package { $package:
+    ensure => present,
+  }
+  
   file { $docroot:
     ensure => directory,
   }
