@@ -2,7 +2,7 @@ class nginx (
   $package = $nginx::params::package,
   $owner = $nginx::params::owner,
   $group = $nginx::params::group,
-  $docroot = $nginx::params::docroot,
+  $docroot,
   $confdir = $nginx::params::confdir,
   $blockdir = $nginx::params::blockdir,
   $logdir = $nginx::params::logdir,
