@@ -30,3 +30,4 @@ class nginx::params {
                           'debian' => 'www-data',
                           'windows' => 'nobody',
                         }
+}
